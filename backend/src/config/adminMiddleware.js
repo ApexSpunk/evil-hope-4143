@@ -2,7 +2,7 @@ const userModel = require("../user/user.model");
 var jwt = require('jsonwebtoken');
 
 
-const AuthMiddleware = async (req, res, next) => {
+const AdminMiddleware = async (req, res, next) => {
     let token = req.headers.token;
     if (!token) {
         return res.status(401).send({ message: "Token not found" });
@@ -12,8 +12,12 @@ const AuthMiddleware = async (req, res, next) => {
         const verify = jwt.verify(token, process.env.JWT_SECRET);
         const user = await userModel.findOne({ _id: verify.id, email: verify.email, password: verify.password });
         if (user) {
-            req.user = user;
-            next();
+            if (user.role === "admin") {
+                req.user = user;
+                next();
+            } else {
+                res.status(401).send({ message: "You are not authorized to access this route" });
+            }
         } else {
             res.status(401).send({ message: "Invalid token" });
         }
@@ -23,4 +27,4 @@ const AuthMiddleware = async (req, res, next) => {
     }
 }
 
-module.exports = AuthMiddleware;
+module.exports = AdminMiddleware;

@@ -1,8 +1,8 @@
-const {Router}=require("express");
-const jwt=require("jsonwebtoken");
-const userModel=require("./user.model");
+const { Router } = require("express");
+const jwt = require("jsonwebtoken");
+const userModel = require("./user.model");
 
-const app=Router()
+const app = Router()
 
 app.get('/', async (req, res) => {
     try {
@@ -14,17 +14,17 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
-    try { 
-        const {email}=req.body;
-          const findUser=await userModel.findOne({email:email})
-    if(findUser){
-        return res.send("user already exists")
-    }
+    try {
+        const { email } = req.body;
+        const findUser = await userModel.findOne({ email: email })
+        if (findUser) {
+            return res.send("user already exists")
+        }
         const user = await userModel.create(req.body);
         //  const token = jwt.sign({ id: user._id, email: user.email, password: user.password }, process.env.JWT_SECRET, { expiresIn: '1h' });
         return res.status(201).send(user);
     } catch (e) {
-       return res.status(500).send(e.message);
+        return res.status(500).send(e.message);
     }
 });
 
@@ -44,4 +44,4 @@ app.post('/login', async (req, res) => {
     }
 });
 
-module.exports=app;
+module.exports = app;
