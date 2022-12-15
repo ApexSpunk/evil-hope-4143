@@ -37,7 +37,8 @@ app.post('/signup', async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const { email } = req.body;
-        const user = await userModel.findOne({ email });
+        const user = await userModel.findOne({ email:email  });
+        console.log(user);
         if(user){
             const verifyemail= await OtpModel.findOne({email:user.email})
             if(verifyemail){
