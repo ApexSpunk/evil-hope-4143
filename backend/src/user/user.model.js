@@ -8,7 +8,7 @@ const userSchema=new Schema({
     email:{type:String,required:true,unique:true},
     mobile:{type:Number,required:true,unique:true},
     role: { type: String, enum: ["user", "admin"], default: "user" },
-})
+},{timestamps:true})
 
 const userModel=model("user",userSchema);
 
