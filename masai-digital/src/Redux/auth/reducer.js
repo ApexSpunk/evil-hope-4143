@@ -31,23 +31,9 @@ export default function authReducer(state = initialState, { type, payload }) {
         case AUTH_LOGIN_REQUEST:
             return { ...state, userLogin: { loading: true, error: false } };
         case AUTH_LOGIN_SUCCESS:
-            // Cookies.set("token", payload.token);
-            // Cookies.set(
-            //     "user",
-            //     JSON.stringify({
-            //         name: payload.user.name,
-            //         email: payload.user.email,
-            //         _id: payload.user._id,
-            //     })
-            // );
             return {
                 ...state,
                 userLogin: { loading: false, error: false, message: payload },
-                // data: {
-                //     isAuthenticated: true,
-                //     token: payload.token,
-                //     user: payload.user,
-                // }
             };
         case AUTH_LOGIN_FAILURE:
             return {
@@ -59,6 +45,31 @@ export default function authReducer(state = initialState, { type, payload }) {
                 ...state,
                 userLogin: { loading: false, error: false, message: "" },
             };
+        case AUTH_GETOTP_REQUEST:
+            return { ...state, userLogin: { loading: true, error: false } };
+        case AUTH_GETOTP_SUCCESS:
+            console.log(payload, "payload");
+            Cookies.set("token", payload.token);
+            Cookies.set(
+                "user",
+                JSON.stringify({
+                    name: payload.user.name,
+                    email: payload.user.email,
+                    _id: payload.user._id,
+                })
+            );
+            return {
+                ...state, userLogin: { loading: false, error: false, message: payload.message },
+                data: {
+                    isAuthenticated: true,
+                    token: payload.token,
+                    user: payload.user,
+                }
+            };
+        case AUTH_GETOTP_FAILURE:
+            return { ...state, userLogin: { loading: false, error: true, message: payload.message } };
+        case AUTH_GETOTP_RESET:
+            return { ...state, userLogin: { loading: false, error: false, message: "" } };
         case AUTH_LOGOUT:
             Cookies.remove("token");
             Cookies.remove("user");
