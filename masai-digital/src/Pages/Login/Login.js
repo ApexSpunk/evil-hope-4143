@@ -58,7 +58,7 @@ function Login() {
             </CardBody>
             <CardFooter mt='-4'>
               <Button w='100%' colorScheme='red' onClick={registered ? () => {
-                userData.otp.length < 5 ? toast({ title: 'Please enter OTP', status: 'error', duration: 3000, isClosable: true, }) : dispatch(authVerify({ email: userData.email, otp: userData.otp }));
+                userData.otp.length < 6 ? toast({ title: 'Please enter OTP', status: 'error', duration: 3000, isClosable: true, }) : dispatch(authVerify({ email: userData.email, otp: userData.otp }));
               } : handleLogin}>{registered ? 'Verify' : 'Proceed'}</Button>
             </CardFooter>
           </Card>
