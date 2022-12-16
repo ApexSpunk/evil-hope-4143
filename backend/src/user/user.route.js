@@ -37,11 +37,13 @@ app.post('/signup', async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const { email } = req.body;
-        const user = await userModel.findOne({ email });
-        if (user) {
-            const verifyemail = await OtpModel.findOne({ email: user.email })
-            if (verifyemail) {
-                return res.send({ message: "Otp already generated" })
+
+        const user = await userModel.findOne({ email:email  });
+        if(user){
+            const verifyemail= await OtpModel.findOne({email:user.email})
+            if(verifyemail){
+                return res.send("Otp already generated")
+
             }
             const otp = Math.floor(Math.random() * 100000)
             const saveOtp = await OtpModel.create({ otp, email })
@@ -77,18 +79,21 @@ app.post('/login', async (req, res) => {
 });
 
 
-app.post("/verify", async (req, res) => {
-    try {
-        const { email, otp } = req.body;
-        const verify = await OtpModel.findOne({ otp, email })
 
-        if (!verify) {
-            return res.status(404).send({ message: "invalid otp" })
-        } else {
-            const user = await userModel.findOne({ email }, { "password": 0 })
-            const token = jwt.sign({ id: user._id, email: user.email, password: user.password }, process.env.JWT_SECRET, { expiresIn: '1h' });
+app.post("/verify", async(req,res)=>{
+    try{
+        const { email,otp } = req.body;
+        const verify=await OtpModel.findOne({otp,email})
+       
+        if(!verify){
+           return res.status(404).send("invalid otp")
+        }else{
+            const user = await userModel.findOne({email},{"password": 0})
+            const token = jwt.sign({ id: user._id, email: user.email}, process.env.JWT_SECRET, { expiresIn: '1h' });
+             
+            return res.status(200).send({message:"login success",data:token,user});
 
-            return res.status(200).send({ message: "login success", token, user });
+
         }
 
     } catch {
