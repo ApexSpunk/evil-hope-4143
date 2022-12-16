@@ -2,12 +2,12 @@ const { Router } = require("express");
 const jwt = require("jsonwebtoken");
 const OtpModel = require("../otp/otp.model");
 const userModel = require("./user.model");
-const nodemailer=require("nodemailer")
+const nodemailer = require("nodemailer")
 const app = Router()
 
 
-const emailuser=process.env.EMAILUSERNAME;
-const emailpassword=process.env.EMAILPASSWORD;
+const emailuser = process.env.EMAILUSERNAME;
+const emailpassword = process.env.EMAILPASSWORD;
 
 
 app.get('/', async (req, res) => {
@@ -24,7 +24,7 @@ app.post('/signup', async (req, res) => {
         const { email } = req.body;
         const findUser = await userModel.findOne({ email: email })
         if (findUser) {
-            return res.send("user already exists")
+            return res.send({ message: "user already exists" })
         }
         const user = await userModel.create(req.body);
         return res.status(201).send(user);
@@ -37,44 +37,47 @@ app.post('/signup', async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         const { email } = req.body;
+
         const user = await userModel.findOne({ email:email  });
         if(user){
             const verifyemail= await OtpModel.findOne({email:user.email})
             if(verifyemail){
                 return res.send("Otp already generated")
+
             }
-           const otp=Math.floor(Math.random()*100000)
-           const saveOtp= await OtpModel.create({otp,email})
-
-              
-           let transporter = nodemailer.createTransport({
-               host: "smtp.ethereal.email",
-               port: 587,
-               
-               auth: {
-                 user: emailuser, 
-                 pass: emailpassword, 
-                
-               },
-               })
-         
-                transporter.sendMail({
-                 from: 'masaidigital@gmail.com', 
-                 to: email, 
-                 subject: `OTP generated successfully` ,
-                 text: `Dear ${user.firstName} the otp to login to your account id ${otp}`,
-               });
+            const otp = Math.floor(Math.random() * 100000)
+            const saveOtp = await OtpModel.create({ otp, email })
 
 
+            let transporter = nodemailer.createTransport({
+                host: "smtp.ethereal.email",
+                port: 587,
 
-           return res.status(200).send({ message: "OTP has been sent to your email"});
-        }else{
-            res.status(200).send("You are not registered please register")
+                auth: {
+                    user: emailuser,
+                    pass: emailpassword,
+
+                },
+            })
+
+            transporter.sendMail({
+                from: 'masaidigital@gmail.com',
+                to: email,
+                subject: `OTP generated successfully`,
+                text: `Dear ${user.firstName} the otp to login to your account id ${otp}`,
+            });
+
+
+
+            return res.status(200).send({ message: "OTP has been sent to your email" });
+        } else {
+            res.status(200).send({ message: "You are not registered please register" })
         }
     } catch (e) {
         res.status(500).send(e.message);
     }
 });
+
 
 
 app.post("/verify", async(req,res)=>{
@@ -89,9 +92,11 @@ app.post("/verify", async(req,res)=>{
             const token = jwt.sign({ id: user._id, email: user.email}, process.env.JWT_SECRET, { expiresIn: '1h' });
              
             return res.status(200).send({message:"login success",data:token,user});
+
+
         }
-            
-    } catch{
+
+    } catch {
         return res.status(400).send("Invalid token");
     }
 })

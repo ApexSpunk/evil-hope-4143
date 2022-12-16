@@ -1,7 +1,13 @@
-import React from 'react'
-import { Box, Button, Card, CardBody, CardFooter, CardHeader, Flex, Input, Text } from '@chakra-ui/react';
+import React, { useEffect } from 'react'
+import { Box, Button, Card, CardBody, CardHeader, Flex, Input, Text } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
+import { AUTH_LOGIN_RESET } from '../../Redux/auth/actionTypes';
 
 function Register() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch({ type: AUTH_LOGIN_RESET });
+    }, [])
     return (
         <Box>
             <Flex alignItems='center' justifyContent='center' mx='8'>

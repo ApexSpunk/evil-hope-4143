@@ -1,0 +1,8 @@
+.home {
+    text-align: start;
+    margin: 0px 10px 0px 10px;
+    display: flex;
+}
+a.tohome {
+    color: #3b3a3a;
+}
