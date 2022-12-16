@@ -38,7 +38,6 @@ app.post('/login', async (req, res) => {
     try {
         const { email } = req.body;
         const user = await userModel.findOne({ email:email  });
-        console.log(user);
         if(user){
             const verifyemail= await OtpModel.findOne({email:user.email})
             if(verifyemail){
@@ -87,7 +86,7 @@ app.post("/verify", async(req,res)=>{
            return res.status(404).send("invalid otp")
         }else{
             const user = await userModel.findOne({email},{"password": 0})
-            const token = jwt.sign({ id: user._id, email: user.email, password: user.password }, process.env.JWT_SECRET, { expiresIn: '1h' });
+            const token = jwt.sign({ id: user._id, email: user.email}, process.env.JWT_SECRET, { expiresIn: '1h' });
              
             return res.status(200).send({message:"login success",data:token,user});
         }
