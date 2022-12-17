@@ -32,8 +32,6 @@ app.post('/', middleware, async (req, res) => {
          updatedcart.populate('productId')
         res.status(200).send({ message: "Cart updated successfully", data: updatedcart  });
     }
-   
-
 });
 
 
