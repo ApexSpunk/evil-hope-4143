@@ -26,13 +26,10 @@ export const authRegister = (data) => async (dispatch) => {
 
 
 export const authVerify = (data) => async (dispatch) => {
-    console.log(data);
     try {
         dispatch({ type: AUTH_GETOTP_REQUEST });
         const res = await axios.post("https://masaidigital.onrender.com/user/verify", data);
-        res.data.data = { data:res.data.data, message: res.data.message };
-        console.log(res.data);
-        dispatch({ type: AUTH_GETOTP_SUCCESS, payload: res.data.data });
+        dispatch({ type: AUTH_GETOTP_SUCCESS, payload: res.data });
     } catch (error) {
         dispatch({ type: AUTH_GETOTP_FAILURE, payload: { message: error.response.data.message } });
     }
@@ -40,7 +37,6 @@ export const authVerify = (data) => async (dispatch) => {
 
 
 export const authLogin = (data) => async (dispatch) => {
-    console.log(data, "data");
     try {
         dispatch({ type: AUTH_LOGIN_REQUEST });
         const res = await axios.post("https://masaidigital.onrender.com/user/login", data);

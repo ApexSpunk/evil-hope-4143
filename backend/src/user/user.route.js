@@ -45,7 +45,7 @@ app.post('/login', async (req, res) => {
                 return res.send("Otp already generated")
 
             }
-            const otp = Math.floor(Math.random() * 100000)
+            const otp = Math.floor(100000 + Math.random() * 900000);
             const saveOtp = await OtpModel.create({ otp, email })
 
 

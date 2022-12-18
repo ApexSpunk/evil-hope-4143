@@ -28,7 +28,6 @@ function Login() {
   }
 
   useEffect(() => {
-    console.log(message);
     if (message == 'You are not registered please register'){
       navigate('/register');
     }else if (message == 'Otp already generated' || message == 'OTP has been sent to your email'){
@@ -39,8 +38,18 @@ function Login() {
         duration: 3000,
         isClosable: true,
       });
+    }else if(message == 'login success'){
+      navigate('/');
     }
-  }, [message])
+    if(error){
+      toast({ 
+        title: message,
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  }, [message,error])
 
   return (
     <Box>
