@@ -28,7 +28,7 @@ function BottomPart_1(){
              h="100%" width="70%" display="flex" justifyContent="space-around" gap="30px" padding="20px" >
             {
                 soundbar.map((items)=>(
-                    <div style={{width:"30%",boxSizing:"border-box"}} key={items.id}>
+                    <div style={{width:"30%",boxSizing:"border-box"}} key={items._id}>
                          <Link to={`product/${items._id}`} >
                     <img style={{height:"200px"}} width="200px"  src={items.images[0]} alt={items.id} />
                     <div  className="title_lapi">
