@@ -22,11 +22,11 @@ import {
 } from '@chakra-ui/react';
 
 import { DeleteIcon } from '@chakra-ui/icons';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getCart, removeProductFromCart, updateProductInCart } from '../../Redux/cart/actions';
 import { useDispatch, useSelector } from 'react-redux';
 const Cart = () => {
-
+  const navigate=useNavigate()
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getCart())
@@ -117,11 +117,11 @@ const Cart = () => {
             
             marginTop="5"
             fontSize='xl'
-          //   onClick={() =>
-          //     productDispatch({
-          //       type: 'CLEAR_FILTERS',
-          //     })
-          //   }
+            onClick={() =>
+              
+                navigate("/Otp")
+              
+            }
           >
             Proceed to Checkout
           </Button>
