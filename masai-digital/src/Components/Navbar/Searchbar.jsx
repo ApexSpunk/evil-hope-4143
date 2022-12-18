@@ -1,38 +1,3 @@
-// import { Button, Icon, Input, InputGroup, InputRightElement, Stack } from "@chakra-ui/react";
-// import { Search2Icon } from "@chakra-ui/icons"
-// import "./header.css"
-
-// export default function SearchBar(){
-//     return (
-    
-//         <div>
-//             <InputGroup>
-//             <Input
-//                     isInvalid
-//                     errorBorderColor='red.300'
-//                     placeholder='Find your favourite products'
-//                     borderRadius="30px"
-//                     bgColor="white"
-//                     width="600px"
-                   
-//                 />
-//             <InputRightElement  paddingRight="40px">
-//             <Button bg="none" height="35px"><Icon  as={Search2Icon}/></Button>
-//             </InputRightElement>
-//             </InputGroup>
-//         </div>
-   
-//     )
-// }
-
-
-
-
-
-
-
-
-
 import { HStack, Image, Stack, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
@@ -47,8 +12,7 @@ const SearchBar = ( OpenSearch , SetOpenSearch ) => {
     const [data,setData]=useState([]);
 
    async function getData(){
-        // let res=await fetch(`https://masaidigital.onrender.com/product/search`)
-        let res=await fetch(`http://localhost:8080/product/search`)
+        let res=await fetch(`https://masaidigital.onrender.com/product/search`)
         let sdata=await res.json()
         setData(sdata)
     }

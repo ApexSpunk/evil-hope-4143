@@ -13,11 +13,17 @@ import SearchBar from "./Searchbar"
 import { Navigate, Link } from "react-router-dom"
 import { useState } from "react"
 import { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { getCart } from "../../Redux/cart/actions"
 function Header() {
 
     const { data: { user } } = useSelector(state => state.auth)
     const { carts } = useSelector(state => state.cart)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getCart())
+    }, [])
 
     function gohome() {
         return (
@@ -61,10 +67,12 @@ function Header() {
                         <div style={{ display: "flex", gap: "5px" }} >
                             Select Your Location
                         </div>
-                        <div>
-                            <CartIcon />
-                            {carts.length}
-                        </div>
+                        <Link to="/cart" color='black'>
+                            <div>
+                                <CartIcon />
+                                {carts.length}
+                            </div>
+                        </Link>
                         <div id="profile">
                             <Link to="/login">
                                 <Flex alignItems="center" justifyContent="center" >

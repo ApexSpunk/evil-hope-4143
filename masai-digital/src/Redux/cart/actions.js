@@ -46,6 +46,7 @@ export const addProductToCart = (id) => async (dispatch) => {
 }
 
 export const updateProductInCart = (id, quantity) => async (dispatch) => {
+    console.log(id, quantity)
     try {
         dispatch({ type: UPDATE_CART_REQUEST });
         const res = await axios.put(`https://masaidigital.onrender.com/cart/${id}`, {quantity}, {
@@ -53,6 +54,7 @@ export const updateProductInCart = (id, quantity) => async (dispatch) => {
                 token: Cookies.get("token"),
             },
         });
+        console.log(res.data)
         dispatch({
             type: UPDATE_CART_SUCCESS,
 
