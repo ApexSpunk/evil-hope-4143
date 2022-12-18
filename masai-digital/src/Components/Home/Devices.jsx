@@ -1,10 +1,26 @@
 import { Box, HStack, Stack, Tag, Text, VStack } from "@chakra-ui/react"
+import { useEffect, useState } from "react"
+import { Link} from "react-router-dom"
 import pdata from "./database_devices"
 
 function Devices(){
-    console.log(pdata)
+  
+    const [appliances,setAppliances]=useState([])
+
+    async function getAppliances(){
+      let res=await fetch(`https://masaidigital.onrender.com/product?category=appliances&limit=5`)
+      let data=await res.json()
+      setAppliances(data)
+     }
+  
+     useEffect(()=>{
+        getAppliances()
+     },[])
+   
+
+
     return (
-       <VStack  h="460px">
+       <VStack  h="450px">
 
         <Box h="60px" width="100%" paddingLeft="20px" padding="12px" >
             <Text fontSize="22px" fontWeight="semibold">LOWEST PRICES ON SMALL APPLIANCES | <span className="viewover" style={{fontSize:"14px"}}>VIEW ALL</span></Text>
@@ -13,17 +29,18 @@ function Devices(){
         boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
         h="auto" width="100%" display="flex" justifyContent="space-around" gap="30px" padding="20px" >
             {
-                pdata.map((items)=>(
-                    <div style={{width:"30%",boxSizing:"border-box"}} key={items.id}>
-                    {/* <h4>{products.id}</h4> */}
-                    <img style={{height:"200px"}} width="200px"  src={items.image} alt={items.id} />
+                appliances.map((items)=>(
+                    <Box  style={{width:"30%",boxSizing:"border-box"}} key={items._id} display={"flex"} gridTemplateColumns={{base:"repeat(2,1fr)",md:"repeat(2,1fr)",lg:"repeat(5,1fr)"}}>
+                    <Link to={`product/${items._id}`} >
+                   <Box>
+                   <img style={{height:"200px"}} width="200px"  src={items.images[0]} alt={items.id} />
                     <div  className="title_lapi">
-                    <h3  > {items.title}</h3>
+                    <h3  > {items.title.slice(0,50)}....</h3>
                     </div>
 
                     <div className="price">
-                        <h4><span className="offer"> Offer Price:</span> ₹ {items.offer}</h4>
-                        <h5 ><span className="offer">M.R.P : ₹{" "} <span className="off">{items.save}</span> </span> </h5>
+                        <h5 ><span className="offer">M.R.P : ₹{" "} <span className="off">{items.mrp}</span> </span> </h5>
+                        <h4><span className="offer"> Offer Price:</span> ₹ {items.price}</h4>
                     
                         
                     </div>
@@ -32,7 +49,9 @@ function Devices(){
                                   Offer Available
                     </Tag>
 
-                    </div>
+                   </Box>
+                   </Link>
+                    </Box>
                 ))
             }
 

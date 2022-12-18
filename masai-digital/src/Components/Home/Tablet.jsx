@@ -1,7 +1,22 @@
 import { Box, HStack, Image, Stack, Tag, Text, VStack } from "@chakra-ui/react"
-import tabletdata from "./database_tablet"
+import { useEffect, useState } from "react"
+import {Link} from 'react-router-dom';
 
 function Tablet() {
+
+    const [tablet,setTablet]=useState([])
+
+  async function getTablet(){
+    let res=await fetch(`https://masaidigital.onrender.com/product?category=tablet`)
+    let data=await res.json()
+    setTablet(data)
+   }
+
+   useEffect(()=>{
+    getTablet()
+   },[])
+   console.log(tablet);
+ 
     return (
         <VStack h="500px" mb='8' display="flex" justifyContent="start" paddingLeft="30px"  >
 
@@ -18,17 +33,17 @@ function Tablet() {
                     boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
                     h="100%" width="67%" display="flex" justifyContent="space-around" gap="30px" padding="20px" >
                     {
-                        tabletdata.map((items) => (
-                            <div style={{ width: "30%", boxSizing: "border-box" }} key={items.id}>
-                                {/* <h4>{products.id}</h4> */}
-                                <img style={{ height: "200px" }} width="200px" src={items.image} alt={items.id} />
+                        tablet.map((items) => (
+                            <div style={{ width: "30%", boxSizing: "border-box" }} key={items._id}>
+                                   <Link to={`product/${items._id}`} >
+                                <img style={{ height: "200px" }} width="200px" src={items.images[0]} alt={items.id} />
                                 <div className="title_lapi">
                                     <h3  > {items.title}</h3>
                                 </div>
 
                                 <div className="price">
-                                    <h4><span className="offer"> Offer Price:</span> ₹ {items.offer}</h4>
-                                    <h5 ><span className="offer">M.R.P : ₹{" "} <span className="off">{items.save}</span> </span> </h5>
+                                    <h5 ><span className="offer">M.R.P : ₹{" "} <span className="off">{items.mrp}</span> </span> </h5>
+                                    <h4><span className="offer"> Offer Price:</span> ₹ {items.price}</h4>
 
 
                                 </div>
@@ -36,7 +51,7 @@ function Tablet() {
                                 <Tag size="md" mt="5px" borderRadius="30px" variant='solid' colorScheme='teal'>
                                     Offer Available
                                 </Tag>
-
+                                </Link>
                             </div>
                         ))
                     }
