@@ -23,7 +23,7 @@ import {
 
 import { DeleteIcon } from '@chakra-ui/icons';
 import { useParams } from 'react-router-dom';
-import { getCart, updateProductInCart } from '../../Redux/cart/actions';
+import { getCart, removeProductFromCart, updateProductInCart } from '../../Redux/cart/actions';
 import { useDispatch, useSelector } from 'react-redux';
 const Cart = () => {
 
@@ -36,7 +36,7 @@ const Cart = () => {
   const [total, setTotal] = useState(0)
   useEffect(() => {
     setTotal(
-      carts.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
+      carts.reduce((acc, curr) => acc + Number(curr.productId.price) * curr.quantity, 0)
     );
   }, [carts]);
   console.log(carts);
@@ -89,11 +89,7 @@ const Cart = () => {
                           marginTop="3"
                           w="100%"
                           colorScheme="red"
-                          onClick={() =>
-                            dispatch({
-                              type: 'remove',
-                              payload: x,
-                            })
+                          onClick={e => dispatch(removeProductFromCart(x._id))
                           }
                         >
                           <DeleteIcon />
@@ -110,16 +106,17 @@ const Cart = () => {
         )}
       </GridItem>
       <GridItem colSpan={2} rowSpan={50}>
-        <Flex bg="#E42529" color="white" p="6" h="70vh" direction="column">
-          <Text fontSize="xl">Subtotal ({carts.length}) items</Text>
+        <Flex bg="#E42529" color="white" p="6" h="80vh" direction="column">
+          <Text fontSize="2rem">Subtotal ({carts.length}) Items</Text>
 
-          <Text fontSize="xl">Total: ₹ </Text>
+          <Text fontSize="2rem">Total: ₹ {total}</Text>
           <Spacer />
           <Button
             color="black"
             w="100%"
+            
             marginTop="5"
-
+            fontSize='xl'
           //   onClick={() =>
           //     productDispatch({
           //       type: 'CLEAR_FILTERS',
