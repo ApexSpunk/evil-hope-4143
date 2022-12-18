@@ -4,6 +4,7 @@ import Register from '../../Pages/Register/Register';
 import Product from '../../Pages/Store/Product';
 import Store from '../../Pages/Store/Store';
 import Home from '../../Pages/Home/Home';
+import Cart from '../../Pages/Cart/Cart';
 
 function Allroutes() {
     return (
@@ -14,6 +15,7 @@ function Allroutes() {
             <Route path='/product/:id' element={<Product />} />
             <Route path='/store' element={<Store />} />
             <Route path='*' element={<h1>404 Not Found</h1>} />
+            <Route path='/cart' element={<Cart  />} />
         </Routes>
     );
 }

@@ -4,6 +4,7 @@ import StartFoot from "../Footer/StartFoot"
 
 
 function Footer(){
+  
     return (
         <div>
             <StartFoot />
