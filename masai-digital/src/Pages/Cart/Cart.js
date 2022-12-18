@@ -28,13 +28,13 @@ import { useDispatch, useSelector } from 'react-redux';
 const Cart = () => {
 
  const [cart, setCart] = useState([])
-//  const dispatch = useDispatch()
-// const {id} = useParams()
+ const dispatch = useDispatch()
+
 // useEffect(() =>{
 //     dispatch(getCart())
-// }, [id])
-// const {carts} = useSelector(state=>state.cart)
-// console.log(carts)
+// }, [])
+const {carts} = useSelector(state=>state.cart)
+console.log(carts)
 
 //  const [total, setTotal] = useState()
 //    useEffect(() => {

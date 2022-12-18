@@ -10,8 +10,10 @@ export const getCart = () => async (dispatch) => {
             headers: {
                 token: Cookies.get("token"),
             },
+            
         });
-        dispatch({ type: GET_CART_SUCCESS, payload: res.data.data });
+    
+        dispatch({ type: GET_CART_SUCCESS, payload: res.data });
     } catch (error) {
         dispatch({
             type: GET_CART_FAILURE,

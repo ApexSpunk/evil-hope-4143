@@ -18,7 +18,7 @@ function Header() {
 
     const { data: { user } } = useSelector(state => state.auth)
     const { carts } = useSelector(state => state.cart)
-
+console.log('len', carts.length)
     function gohome() {
         return (
             window.location.href = "/"
