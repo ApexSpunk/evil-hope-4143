@@ -40,6 +40,7 @@ export const authLogin = (data) => async (dispatch) => {
     try {
         dispatch({ type: AUTH_LOGIN_REQUEST });
         const res = await axios.post("https://masaidigital.onrender.com/user/login", data);
+        console.log(res.data);
         dispatch({ type: AUTH_LOGIN_SUCCESS, payload: res.data.message });
     } catch (error) {
         dispatch({ type: AUTH_LOGIN_FAILURE, payload: { message: error.response.data.message } });
