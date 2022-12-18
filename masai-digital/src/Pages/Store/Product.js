@@ -21,7 +21,7 @@ function Product() {
     }, [id])
 
     return (
-        <Box ml='8' mt='4'>
+        <Box ml='8' mt='4' mb='8'>
             {
                 loading ? <Text>Loading...</Text> : error ? <Text>{error}</Text> : <Grid templateColumns='repeat(3, 1fr)' gap={6} templateRows='90vh' alignItems='center'>
                     <GridItem colSpan={1}>
