@@ -1,0 +1,56 @@
+.Products {
+    display: flex;
+    gap: 10px;
+    width: 90%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px 10px 10px 10px;
+}
+.card {
+    width: 24%;
+   
+}
+.cardft {
+    display: flex;
+    gap: 25px;
+    justify-content: space-evenly;
+}
+  .wsicon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#offer {
+    width: 60%;
+    border: solid 1px green;
+    color: green;
+    border-radius: 50px;
+    background-color: white;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 1px 0px 50px 6px;
+}
+p.des {
+    text-align: start;
+    font-size: 14px;
+    margin: 1px 0px 0px 10px;
+    color: red;
+}
+          
+p.pri{
+    text-align: start;
+    font-size: 14px;
+    margin: 1px 0px 0px 10px;
+    color: rgb(2, 10, 93); 
+}
+.reb {
+    text-decoration: line-through;
+}
+.para {
+    display: flex;
+    justify-content: space-between;
+}
+.dis{
+    color: green;
+}
