@@ -42,7 +42,7 @@ app.post('/login', async (req, res) => {
         if(user){
             const verifyemail= await OtpModel.findOne({email:user.email})
             if(verifyemail){
-                return res.send("Otp already generated")
+                return res.send({message:"Otp already generated"})
 
             }
             const otp = Math.floor(100000 + Math.random() * 900000);
