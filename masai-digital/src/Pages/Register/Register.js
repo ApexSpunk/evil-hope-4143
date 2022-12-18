@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Button, Card, CardBody, CardHeader, Flex, Input, Text } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { AUTH_LOGIN_RESET } from '../../Redux/auth/actionTypes';
@@ -8,6 +8,7 @@ function Register() {
     useEffect(() => {
         dispatch({ type: AUTH_LOGIN_RESET });
     }, [])
+    const [userData, setUserData] = useState({ firstname: '', lastname: '', email: ''});
     return (
         <Box>
             <Flex alignItems='center' justifyContent='center' mx='8'>

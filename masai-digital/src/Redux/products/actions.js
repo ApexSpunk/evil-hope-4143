@@ -16,8 +16,8 @@ export const getProducts = (params) => async (dispatch) => {
     })
     try {
         dispatch({ type: GET_PRODUCTS_LOADING })
-        const response = await axios.get(`https://masaidigital.onrender.com/products?${query}`)
-        dispatch({ type: GET_PRODUCTS, payload: response.data.data })
+        const response = await axios.get(`https://masaidigital.onrender.com/product?${query}`)
+        dispatch({ type: GET_PRODUCTS, payload: response.data })
     } catch (error) {
         dispatch({ type: GET_PRODUCTS_ERROR, payload: error })
     }
@@ -26,8 +26,8 @@ export const getProducts = (params) => async (dispatch) => {
 export const getSingleProduct = (id) => async (dispatch) => {
     try {
         dispatch({ type: GET_PRODUCT_LOADING })
-        const response = await axios.get(`https://masaidigital.onrender.com/products/${id}`);
-        dispatch({ type: GET_PRODUCT, payload: response.data.data })
+        const response = await axios.get(`https://masaidigital.onrender.com/product/${id}`);
+        dispatch({ type: GET_PRODUCT, payload: response.data })
     } catch (error) {
         dispatch({ type: GET_PRODUCT_ERROR, payload: error })
     }
@@ -36,7 +36,7 @@ export const getSingleProduct = (id) => async (dispatch) => {
 export const addProduct = (product) => async (dispatch) => {
     try {
         dispatch({ type: ADD_PRODUCT_LOADING })
-        const response = await axios.post('https://masaidigital.onrender.com/products', product, {
+        const response = await axios.post('https://masaidigital.onrender.com/product', product, {
             headers: {
                 'token': Cookies.get('token')
             }
@@ -50,7 +50,7 @@ export const addProduct = (product) => async (dispatch) => {
 export const updateProduct = (id, product) => async (dispatch) => {
     try {
         dispatch({ type: UPDATE_PRODUCT_LOADING })
-        const response = await axios.patch(`https://masaidigital.onrender.com/products/${id}`, product, {
+        const response = await axios.patch(`https://masaidigital.onrender.com/product/${id}`, product, {
             headers: {
                 'token': Cookies.get('token')
             }
@@ -64,7 +64,7 @@ export const updateProduct = (id, product) => async (dispatch) => {
 export const deleteProduct = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_PRODUCT_LOADING })
-        const response = await axios.delete(`https://masaidigital.onrender.com/products/${id}`, {
+        const response = await axios.delete(`https://masaidigital.onrender.com/product/${id}`, {
             headers: {
                 'token': Cookies.get('token')
             }
@@ -78,7 +78,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 // export const getProductsBySearch = (search) => async (dispatch) => {
 //     try {
 //         dispatch({ type: GET_PRODUCTS_BY_SEARCH_LOADING })
-//         const response = await axios.get(`https://masaidigital.onrender.com/products?q${search}`);
+//         const response = await axios.get(`https://masaidigital.onrender.com/product?q${search}`);
 //         dispatch({ type: GET_PRODUCTS_BY_SEARCH, payload: response.data.data })
 //     } catch (error) {
 //         dispatch({ type: GET_PRODUCTS_BY_SEARCH_ERROR, payload: error })
@@ -88,7 +88,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 // export const getProductsByFilter = (filter) => async (dispatch) => {
 //     try {
 //         dispatch({ type: GET_PRODUCTS_BY_FILTER_LOADING })
-//         const response = await axios.get(`https://masaidigital.onrender.com/products?${filter}`);
+//         const response = await axios.get(`https://masaidigital.onrender.com/product?${filter}`);
 //         dispatch({ type: GET_PRODUCTS_BY_FILTER, payload: response.data.data })
 //     } catch (error) {
 //         dispatch({ type: GET_PRODUCTS_BY_FILTER_ERROR, payload: error })
@@ -98,7 +98,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 // export const getProductsByCategory = (category) => async (dispatch) => {
 //     try {
 //         dispatch({ type: GET_PRODUCTS_BY_CATEGORY_LOADING })
-//         const response = await axios.get(`https://masaidigital.onrender.com/products?category=${category}`);
+//         const response = await axios.get(`https://masaidigital.onrender.com/product?category=${category}`);
 //         dispatch({ type: GET_PRODUCTS_BY_CATEGORY, payload: response.data.data })
 //     } catch (error) {
 //         dispatch({ type: GET_PRODUCTS_BY_CATEGORY_ERROR, payload: error })
