@@ -1,0 +1,137 @@
+{
+  "Products": [
+    {
+      "id": "1",     
+      "price":"₹16,999",
+      "rebate": "₹19,999",
+      "discount":"18%(28,000)",
+      "src": "https://www.reliancedigital.in/medias/Mi-4A-Horizon-Edition-Television-492166368-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wxNjcxM3xpbWFnZS9qcGVnfGltYWdlcy9oNDcvaDk4Lzk3OTA4NzQ3MTQxNDIuanBnfDhjNDk4M2M1MTM1YTViZmFkMTY1NGM1ZmU4ZjFiODNiOGQ2NTMyYzUxYjg0NWJmYWE4MjIzODg4YmEzMWM5ZDY",
+      "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+      "offer" : "OFFERS AVILABLE",
+      "compare":"compare",
+      "wishlist": "wishlist"
+    },
+  {
+      "id": "2",     
+      "price":"₹16,999",
+      "rebate": "₹19,999",
+      "discount":"18%(28,000)",
+      "src": "https://www.reliancedigital.in/medias/Iffalcon-55U71-Television-493179244-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w0MjUyMXxpbWFnZS9qcGVnfGltYWdlcy9oZDMvaGM0Lzk4OTU3NzUwMTA4NDYuanBnfDhlMGU4MDEzNjUzZGNmYzM4ZTkzNTA2OGUwNDkyY2Y2ZTZkMzI5NzIyZjQzMzgzYzI1OTU0MTY5MGZjYTk5M2Y",
+      "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+      "offer" : "OFFERS AVILABLE",
+      "compare":"compare",
+      "wishlist": "wishlist"
+  },
+  {
+    "id": "3",     
+    "price":"₹16,999",
+    "rebate": "₹19,999",
+    "discount":"18%(28,000)",
+    "src": "https://www.reliancedigital.in/medias/Mi-4A-Horizon-Edition-Television-492166368-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wxNjcxM3xpbWFnZS9qcGVnfGltYWdlcy9oNDcvaDk4Lzk3OTA4NzQ3MTQxNDIuanBnfDhjNDk4M2M1MTM1YTViZmFkMTY1NGM1ZmU4ZjFiODNiOGQ2NTMyYzUxYjg0NWJmYWE4MjIzODg4YmEzMWM5ZDY",
+    "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+    "offer" : "OFFERS AVILABLE",
+    "compare":"compare",
+    "wishlist": "wishlist"
+  },
+{
+    "id": "4",     
+    "price":"₹16,999",
+    "rebate": "₹19,999",
+    "discount":"18%(28,000)",
+    "src": "https://www.reliancedigital.in/medias/Iffalcon-55U71-Television-493179244-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w0MjUyMXxpbWFnZS9qcGVnfGltYWdlcy9oZDMvaGM0Lzk4OTU3NzUwMTA4NDYuanBnfDhlMGU4MDEzNjUzZGNmYzM4ZTkzNTA2OGUwNDkyY2Y2ZTZkMzI5NzIyZjQzMzgzYzI1OTU0MTY5MGZjYTk5M2Y",
+    "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+    "offer" : "OFFERS AVILABLE",
+    "compare":"compare",
+    "wishlist": "wishlist"
+},
+{
+  "id": "5",     
+  "price":"₹16,999",
+  "rebate": "₹19,999",
+  "discount":"18%(28,000)",
+  "src": "https://www.reliancedigital.in/medias/Mi-4A-Horizon-Edition-Television-492166368-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wxNjcxM3xpbWFnZS9qcGVnfGltYWdlcy9oNDcvaDk4Lzk3OTA4NzQ3MTQxNDIuanBnfDhjNDk4M2M1MTM1YTViZmFkMTY1NGM1ZmU4ZjFiODNiOGQ2NTMyYzUxYjg0NWJmYWE4MjIzODg4YmEzMWM5ZDY",
+  "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+  "offer" : "OFFERS AVILABLE",
+  "compare":"compare",
+  "wishlist": "wishlist"
+},
+{
+  "id": "6",     
+  "price":"₹16,999",
+  "rebate": "₹19,999",
+  "discount":"18%(28,000)",
+  "src": "https://www.reliancedigital.in/medias/Iffalcon-55U71-Television-493179244-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w0MjUyMXxpbWFnZS9qcGVnfGltYWdlcy9oZDMvaGM0Lzk4OTU3NzUwMTA4NDYuanBnfDhlMGU4MDEzNjUzZGNmYzM4ZTkzNTA2OGUwNDkyY2Y2ZTZkMzI5NzIyZjQzMzgzYzI1OTU0MTY5MGZjYTk5M2Y",
+  "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+  "offer" : "OFFERS AVILABLE",
+  "compare":"compare",
+  "wishlist": "wishlist"
+},
+{
+  "id": "7",     
+  "price":"₹16,999",
+  "rebate": "₹19,999",
+  "discount":"18%(28,000)",
+  "src": "https://www.reliancedigital.in/medias/Mi-4A-Horizon-Edition-Television-492166368-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wxNjcxM3xpbWFnZS9qcGVnfGltYWdlcy9oNDcvaDk4Lzk3OTA4NzQ3MTQxNDIuanBnfDhjNDk4M2M1MTM1YTViZmFkMTY1NGM1ZmU4ZjFiODNiOGQ2NTMyYzUxYjg0NWJmYWE4MjIzODg4YmEzMWM5ZDY",
+  "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+  "offer" : "OFFERS AVILABLE",
+  "compare":"compare",
+  "wishlist": "wishlist"
+},
+{
+  "id": "8",     
+  "price":"₹16,999",
+  "rebate": "₹19,999",
+  "discount":"18%(28,000)",
+  "src": "https://www.reliancedigital.in/medias/Iffalcon-55U71-Television-493179244-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w0MjUyMXxpbWFnZS9qcGVnfGltYWdlcy9oZDMvaGM0Lzk4OTU3NzUwMTA4NDYuanBnfDhlMGU4MDEzNjUzZGNmYzM4ZTkzNTA2OGUwNDkyY2Y2ZTZkMzI5NzIyZjQzMzgzYzI1OTU0MTY5MGZjYTk5M2Y",
+  "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+  "offer" : "OFFERS AVILABLE",
+  "compare":"compare",
+  "wishlist": "wishlist"
+},
+{
+  "id": "9",     
+  "price":"₹16,999",
+  "rebate": "₹19,999",
+  "discount":"18%(28,000)",
+  "src": "https://www.reliancedigital.in/medias/Mi-4A-Horizon-Edition-Television-492166368-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wxNjcxM3xpbWFnZS9qcGVnfGltYWdlcy9oNDcvaDk4Lzk3OTA4NzQ3MTQxNDIuanBnfDhjNDk4M2M1MTM1YTViZmFkMTY1NGM1ZmU4ZjFiODNiOGQ2NTMyYzUxYjg0NWJmYWE4MjIzODg4YmEzMWM5ZDY",
+  "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+  "offer" : "OFFERS AVILABLE",
+  "compare":"compare",
+  "wishlist": "wishlist"
+},
+{
+  "id": "10",     
+  "price":"₹16,999",
+  "rebate": "₹19,999",
+  "discount":"18%(28,000)",
+  "src": "https://www.reliancedigital.in/medias/Iffalcon-55U71-Television-493179244-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w0MjUyMXxpbWFnZS9qcGVnfGltYWdlcy9oZDMvaGM0Lzk4OTU3NzUwMTA4NDYuanBnfDhlMGU4MDEzNjUzZGNmYzM4ZTkzNTA2OGUwNDkyY2Y2ZTZkMzI5NzIyZjQzMzgzYzI1OTU0MTY5MGZjYTk5M2Y",
+  "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+  "offer" : "OFFERS AVILABLE",
+  "compare":"compare",
+  "wishlist": "wishlist"
+},
+{
+  "id": "9",     
+  "price":"₹16,999",
+  "rebate": "₹19,999",
+  "discount":"18%(28,000)",
+  "src": "https://www.reliancedigital.in/medias/Mi-4A-Horizon-Edition-Television-492166368-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wxNjcxM3xpbWFnZS9qcGVnfGltYWdlcy9oNDcvaDk4Lzk3OTA4NzQ3MTQxNDIuanBnfDhjNDk4M2M1MTM1YTViZmFkMTY1NGM1ZmU4ZjFiODNiOGQ2NTMyYzUxYjg0NWJmYWE4MjIzODg4YmEzMWM5ZDY",
+  "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+  "offer" : "OFFERS AVILABLE",
+  "compare":"compare",
+  "wishlist": "wishlist"
+},
+{
+  "id": "10",     
+  "price":"₹16,999",
+  "rebate": "₹19,999",
+  "discount":"18%(28,000)",
+  "src": "https://www.reliancedigital.in/medias/Iffalcon-55U71-Television-493179244-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w0MjUyMXxpbWFnZS9qcGVnfGltYWdlcy9oZDMvaGM0Lzk4OTU3NzUwMTA4NDYuanBnfDhlMGU4MDEzNjUzZGNmYzM4ZTkzNTA2OGUwNDkyY2Y2ZTZkMzI5NzIyZjQzMzgzYzI1OTU0MTY5MGZjYTk5M2Y",
+  "description":"MI 32 HD Ready Smart LED TV, 4A Horizon, ELA4546IN",
+  "offer" : "OFFERS AVILABLE",
+  "compare":"compare",
+  "wishlist": "wishlist"
+}
+  ]
+  
+}
