@@ -19,11 +19,10 @@ function Product() {
     const { singleProduct, getProduct: { loading, error } } = useSelector(state => state.product);
     const { data: { isAuthenticated } } = useSelector(state => state.auth)
     const { carts } = useSelector(state => state.cart)
-    console.log(carts)
     const toast = useToast()
     
     var product = carts.find(product => product.productId._id === id)
-    console.log(product)
+    console.log(singleProduct.images)
 
     return (
         <Box ml='8' mt='4' mb='8'>
@@ -33,7 +32,7 @@ function Product() {
                         <Image src={singleProduct.images[0]} />
                         <Flex mt='8' justifyContent='space-between'>
                             {
-                                singleProduct.images?.slice(1, 4).map((image, index) => <Image key={index} src={image} />)
+                                singleProduct.images?.slice(1, 4).map((image, index) => <Image key={index} src={image} h='96px' w='96px'/>)
                             }
                         </Flex>
                     </GridItem>

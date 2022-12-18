@@ -17,6 +17,7 @@ import { useSelector } from "react-redux"
 function Header() {
 
     const { data: { user } } = useSelector(state => state.auth)
+    const { carts } = useSelector(state => state.cart)
 
     function gohome() {
         return (
@@ -62,13 +63,13 @@ function Header() {
                         </div>
                         <div>
                             <CartIcon />
-                            Cart
+                            {carts.length}
                         </div>
                         <div id="profile">
                             <Link to="/login">
                                 <Flex alignItems="center" justifyContent="center" >
-                                <Login />
-                                <Text color="white" fontSize="sm" fontWeight="bold" >{user ? user.name : "Login"}</Text>
+                                    <Login />
+                                    <Text color="white" fontSize="sm" fontWeight="bold" >{user ? user.name : "Login"}</Text>
                                 </Flex>
                             </Link>
                         </div>
