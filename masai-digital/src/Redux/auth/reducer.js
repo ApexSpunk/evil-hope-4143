@@ -49,11 +49,11 @@ export default function authReducer(state = initialState, { type, payload }) {
             return { ...state, userLogin: { loading: true, error: false } };
         case AUTH_GETOTP_SUCCESS:
             console.log(payload, "payload");
-            Cookies.set("token", payload.token);
+            Cookies.set("token", payload.data);
             Cookies.set(
                 "user",
                 JSON.stringify({
-                    name: payload.user.name,
+                    name: payload.user.firstName,
                     email: payload.user.email,
                     _id: payload.user._id,
                 })
@@ -62,7 +62,7 @@ export default function authReducer(state = initialState, { type, payload }) {
                 ...state, userLogin: { loading: false, error: false, message: payload.message },
                 data: {
                     isAuthenticated: true,
-                    token: payload.token,
+                    token: payload.data,
                     user: payload.user,
                 }
             };

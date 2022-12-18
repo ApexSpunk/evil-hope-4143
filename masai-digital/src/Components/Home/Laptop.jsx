@@ -1,0 +1,58 @@
+import { Box, HStack, Stack, Tag, Text, VStack } from "@chakra-ui/react"
+import data from "./database_laptop"
+import axios from "axios"
+import {Link} from "react-router-dom"
+import { useEffect, useState } from "react"
+
+function Laptop(){
+const [laptop,setLaptop]=useState([])
+
+  async function getLaptop(){
+    let res=await fetch(`https://masaidigital.onrender.com/product?category=laptop&limit=5`)
+    let data=await res.json()
+    setLaptop(data)
+   }
+
+   useEffect(()=>{
+    getLaptop()
+   },[])
+ 
+
+    return (
+       <VStack   h="450px">
+        <Box h="60px" width="100%" paddingLeft="20px" padding="12px" >
+            <Text fontSize="22px" fontWeight="semibold">BEST DEALS ON LATEST LAPTOPS | <span className="viewover" style={{fontSize:"14px"}}>VIEW ALL</span></Text>
+        </Box>
+        <HStack 
+        boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+        h="100%" width="100%" display="flex" justifyContent="space-around" gap="30px" padding="20px" >
+            {
+                laptop.map((items)=>(
+                    <div style={{width:"30%",boxSizing:"border-box"}} key={items._id}>
+                       <Link to={`product/${items._id}`} >
+                    <img style={{height:"200px"}} width="200px"  src={items.images[0]} alt={items.id} />
+                    <div  className="title_lapi">
+                    <h3  > {items.title.slice(0,50)}....</h3>
+                    </div>
+
+                    <div className="price">
+                        <h5 ><span className="offer">M.R.P : ₹{" "} <span className="off">{items.mrp}</span> </span> </h5>
+                        <h4><span className="offer"> Offer Price:</span> ₹ {items.price}</h4>    
+                    </div>
+
+                    <Box justifyContent={"center"} alignItems={"center"}>
+                        <Tag  size="md" mt="5px" borderRadius="30px"  variant='solid' colorScheme='teal'>
+                                    Offer Available
+                        </Tag>
+                    </Box>
+                    </Link>   
+                    </div>
+                ))
+            }
+
+        </HStack>
+
+       </VStack>
+    )
+}
+export default Laptop
