@@ -25,7 +25,15 @@ const SearchBar = ( OpenSearch , SetOpenSearch ) => {
     i.name = i["title"]
   }
 
-
+  const arr=[];
+  const obj={};
+  for(let i=0; i<data.length; i++){
+    if(obj[data[i].title] === undefined){
+      obj[data[i].title]=1
+      arr.push(data[i]);
+    }
+  }
+  
 
     const navigate = useNavigate()
 
@@ -59,7 +67,7 @@ const SearchBar = ( OpenSearch , SetOpenSearch ) => {
     <Stack position="fixed"  style={{ width: "40%", left:340, top:30 ,height:60 }} zIndex={1} >
 
     <ReactSearchAutocomplete
-      items={data}
+      items={arr}
       onSearch={handleOnSearch}
       onSelect={handleOnSelect}
       autoFocus
