@@ -35,7 +35,7 @@ import { RiComputerLine } from "react-icons/ri";
 import { ImSpoonKnife } from "react-icons/im";
 import { BiQrScan } from "react-icons/bi";
 import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export const Hamburger = () => {
@@ -43,6 +43,12 @@ export const Hamburger = () => {
   const btnRef = React.useRef();
   const [isAuth, setIsAuth] = useState(false);
   const toast = useToast();
+  const navigate=useNavigate()
+
+  const handleClick = () => {
+       onClose();
+       navigate("/login")
+  }
 
   const handleLogOut = () => {
     if (!isAuth) {
@@ -409,7 +415,7 @@ export const Hamburger = () => {
               >
                 <Flex alignItems={"center"} gap="10px">
                   <MdAccountCircle />
-                  <Text onClick={onClose}>Login</Text>
+                  <Text _hover={{cursor:"pointer"}} onClick={handleClick}>Login</Text>
                 </Flex>
               </Flex>
             )}
