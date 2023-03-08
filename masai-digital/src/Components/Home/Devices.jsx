@@ -20,17 +20,21 @@ function Devices(){
 
 
     return (
-       <VStack  h="450px">
+       <VStack  h="auto">
 
         <Box h="60px" width="100%" paddingLeft="20px" padding="12px" >
             <Text fontSize="22px" fontWeight="semibold">LOWEST PRICES ON SMALL APPLIANCES | <span className="viewover" style={{fontSize:"14px"}}>VIEW ALL</span></Text>
         </Box>
         <HStack 
         boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
-        h="auto" width="100%" display="flex" justifyContent="space-around" gap="30px" padding="20px" >
+        h="auto" width="100%" display="grid"  gridTemplateColumns={{
+            base: "repeat(1,1fr)",
+            md: "repeat(2,1fr)",
+            lg: "repeat(5,1fr)",
+          }} gap="30px" padding="20px" >
             {
                 appliances.map((items)=>(
-                    <Box  style={{width:"30%",boxSizing:"border-box"}} key={items._id} display={"flex"} gridTemplateColumns={{base:"repeat(2,1fr)",md:"repeat(2,1fr)",lg:"repeat(5,1fr)"}}>
+                    <Box  key={items._id} display={"flex"} gridTemplateColumns={{base:"repeat(2,1fr)",md:"repeat(2,1fr)",lg:"repeat(5,1fr)"}}>
                     <Link to={`product/${items._id}`} >
                    <Box>
                    <img style={{height:"200px"}} width="200px"  src={items.images[0]} alt={items.id} />

@@ -17,7 +17,7 @@ import Cookies from "js-cookie";
 
 const initialState = {
     userLogin: { loading: false, error: false, message: "" },
-    userRegister: { loading: false, error: false, message: "" },
+    userRegister: { loading: false, error: false, message: ""},
     userLogout: { loading: false, error: false, message: "" },
     data: {
         isAuthenticated: Cookies.get("token") ? true : false,
@@ -27,10 +27,12 @@ const initialState = {
 };
 
 export default function authReducer(state = initialState, { type, payload }) {
+    
     switch (type) {
         case AUTH_LOGIN_REQUEST:
-            return { ...state, userLogin: { loading: true, error: false } };
+            return { ...state, userLogin: { loading: true, error: false }};
         case AUTH_LOGIN_SUCCESS:
+           
             return {
                 ...state,
                 userLogin: { loading: false, error: false, message: payload },
@@ -53,9 +55,9 @@ export default function authReducer(state = initialState, { type, payload }) {
             Cookies.set(
                 "user",
                 JSON.stringify({
-                    name: payload.user.firstName,
-                    email: payload.user.email,
-                    _id: payload.user._id,
+                    name: payload.firstName,
+                    email: payload.email,
+                    _id: payload._id,
                 })
             );
             return {
@@ -91,14 +93,14 @@ export default function authReducer(state = initialState, { type, payload }) {
             Cookies.set(
                 "user",
                 JSON.stringify({
-                    name: payload.user.name,
-                    email: payload.user.email,
-                    _id: payload.user._id,
+                    name: payload.firstName,
+                    email: payload.email,
+                    _id: payload._id,
                 })
             );
             return {
                 ...state,
-                userRegister: { loading: false, error: false, message: payload.message },
+                userRegister: { loading: false, error: false, message: payload},
                 data: {
                     isAuthenticated: true,
                     token: payload.token,

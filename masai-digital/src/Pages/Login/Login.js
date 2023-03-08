@@ -53,14 +53,14 @@ function Login() {
 
   return (
     <Box>
-      <Flex alignItems='center' justifyContent='flex-end' mx='8'>
+      <Flex alignItems='center' justifyContent='flex-end'  mx='8' mt={{ base: '50px', md: '50px', lg: '100px' }}>
         <Box w='500px' mt='16'>
           <Card py='4' shadow='md'>
             <CardHeader mt='-6' bg='gray.50'>
               <Text fontSize='xl' fontWeight='bold'>Login / Register</Text>
             </CardHeader>
             <CardBody mt='3'>
-              <Input placeholder='Enter Your Email' name='email' value={userData.email} onChange={handleChange} />
+              <Input placeholder='Enter Your Email' type="email" name='email' value={userData.email} onChange={handleChange} />
               {
                 registered && <Input mt='5' placeholder='Enter OTP' name='otp' value={userData.otp} onChange={handleChange} />
               }

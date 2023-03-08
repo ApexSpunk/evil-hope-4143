@@ -19,16 +19,20 @@ const [laptop,setLaptop]=useState([])
  
 
     return (
-       <VStack   h="450px">
+       <VStack width={"100%"}  h="auto">
         <Box h="60px" width="100%" paddingLeft="20px" padding="12px" >
             <Text fontSize="22px" fontWeight="semibold">BEST DEALS ON LATEST LAPTOPS | <span className="viewover" style={{fontSize:"14px"}}>VIEW ALL</span></Text>
         </Box>
-        <HStack 
+        <Box 
         boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
-        h="100%" width="100%" display="flex" justifyContent="space-around" gap="30px" padding="20px" >
+        h="auto"  display="grid"  gridTemplateColumns={{
+            base: "repeat(1,1fr)",
+            md: "repeat(2,1fr)",
+            lg: "repeat(5,1fr)",
+          }} gap="30px" padding="20px" width="100%">
             {
                 laptop.map((items)=>(
-                    <div style={{width:"30%",boxSizing:"border-box"}} key={items._id}>
+                    <Box key={items._id}>
                        <Link to={`product/${items._id}`} >
                     <img style={{height:"200px"}} width="200px"  src={items.images[0]} alt={items.id} />
                     <div  className="title_lapi">
@@ -46,11 +50,11 @@ const [laptop,setLaptop]=useState([])
                         </Tag>
                     </Box>
                     </Link>   
-                    </div>
+                    </Box>
                 ))
             }
 
-        </HStack>
+        </Box>
 
        </VStack>
     )

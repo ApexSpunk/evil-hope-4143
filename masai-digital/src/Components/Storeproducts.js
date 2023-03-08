@@ -1,5 +1,5 @@
-import { Box, Grid, Text, Image, Flex, Button, useToast, SlideFade, Alert, AlertIcon, AlertTitle, AlertDescription, GridItem, ScaleFade, Checkbox } from '@chakra-ui/react';
-import React, { useState, useEffect, useContext } from 'react'
+import { Box, Grid, Text, Image, Flex,  useToast,  Alert, AlertIcon, AlertTitle, AlertDescription, GridItem, ScaleFade, Checkbox } from '@chakra-ui/react';
+import React, {  useEffect } from 'react'
 import { BsHeart } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useSearchParams } from 'react-router-dom'

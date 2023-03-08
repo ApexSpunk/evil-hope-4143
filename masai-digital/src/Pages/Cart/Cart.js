@@ -39,9 +39,9 @@ const Cart = () => {
       carts.reduce((acc, curr) => acc + Number(curr.productId.price) * curr.quantity, 0)
     );
   }, [carts]);
-  console.log(carts);
+
   return (
-    <SimpleGrid columns={[2, null, 7]} spacing="4">
+    <SimpleGrid columns={[2, null, 7]} spacing="4" marginTop={"150px"}>
 
       <GridItem colSpan={5} rowSpan={50}>
         {carts.length > 0 ? (

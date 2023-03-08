@@ -4,21 +4,19 @@ import {
 } from "./actionTypes";
 import axios from "axios";
 
-
 export const authRegister = (data) => async (dispatch) => {
     try {
         dispatch({ type: AUTH_REGISTER_REQUEST });
-        const res = await axios.post("https://masaidigital.onrender.com/user/register", data);
-        res.data.data = { ...res.data.data, message: res.data.message };
+        const res = await axios.post("https://masaidigital.onrender.com/user/signup", data);
         dispatch({
             type: AUTH_REGISTER_SUCCESS,
-            payload: res.data.data,
+            payload: res.data,
         });
     } catch (error) {
         dispatch({
             type: AUTH_REGISTER_FAILURE,
             payload: {
-                message: error.response.data.message,
+                message: error,
             },
         });
     }

@@ -4,9 +4,9 @@ import tabletdata from "./database_tablet"
 function Tablet(){
     console.log(tabletdata)
     return (
-       <VStack  h="500px" display="flex" justifyContent="start" paddingLeft="30px"  >
+       <VStack  h="auto" display="flex" justifyContent="start" paddingLeft="30px"  >
 
-        <Box h="60px" width="100%" paddingLeft="20px" padding="12px" >
+        <Box h="auto" width="100%" paddingLeft="20px" padding="12px" >
             <Text fontSize="22px" fontWeight="semibold"> TABLETS | <span className="viewover" style={{fontSize:"14px"}}>VIEW ALL</span></Text>
         </Box>
         <HStack height="100%" width="100%" paddingLeft="30px"paddingBottom="20px" >
@@ -17,12 +17,16 @@ function Tablet(){
 
         <HStack 
              boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
-             h="100%" width="70%" display="flex" justifyContent="space-around" gap="30px" padding="20px" >
+             h="100%" width="100%" display="grid"  gridTemplateColumns={{
+                base: "repeat(1,1fr)",
+                md: "repeat(2,1fr)",
+                lg: "repeat(4,1fr)",
+              }} gap="30px" padding="20px" m="auto" >
             {
                 tabletdata.map((items)=>(
-                    <div style={{width:"30%",boxSizing:"border-box"}} key={items.id}>
+                    <div key={items.id}>
                     {/* <h4>{products.id}</h4> */}
-                    <img style={{height:"200px"}} width="200px"  src={items.image} alt={items.id} />
+                    <img src={items.image} alt={items.id} />
                     <div  className="title_lapi">
                     <h3  > {items.title}</h3>
                     </div>

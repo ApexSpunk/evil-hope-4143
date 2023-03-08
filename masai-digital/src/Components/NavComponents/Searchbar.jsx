@@ -56,7 +56,7 @@ const SearchBar = ( OpenSearch , SetOpenSearch ) => {
 
   const handleOnSelect = (item) => {
     navigate(`/product/${item._id}`)
-    // console.log(item)
+
   }
 
 
@@ -64,8 +64,7 @@ const SearchBar = ( OpenSearch , SetOpenSearch ) => {
     
 
 
-    <Stack position="fixed"  style={{ width: "40%", left:340, top:30 ,height:60 }} zIndex={1} >
-
+    <Stack ml={"100px"}  w={{ base: '180px', md: '450px', lg: '600px' }}  pb={{lg: '25px' }} zIndex={201} >
     <ReactSearchAutocomplete
       items={arr}
       onSearch={handleOnSearch}
@@ -73,6 +72,7 @@ const SearchBar = ( OpenSearch , SetOpenSearch ) => {
       autoFocus
       formatResult={formatResult}
       fuseOptions={{ keys: ["title", "price"] }}
+      placeholder="Find your favorite Products"
     />
 
   </Stack>

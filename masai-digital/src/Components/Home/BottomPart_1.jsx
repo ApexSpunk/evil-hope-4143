@@ -17,20 +17,24 @@ function BottomPart_1(){
    
 
     return (
-       <VStack  h="380px" display="flex" justifyContent="start" paddingLeft="30px"  >
+       <VStack  h="100%" width={"100%"} display="flex" justifyContent="start" paddingLeft="30px"  >
 
-        <Box h="60px" width="100%" paddingLeft="20px" padding="12px" >
+        <Box h="100%" width="100%" paddingLeft="20px" padding="12px" >
             <Text fontSize="22px" fontWeight="semibold">BEST SELLING SOUNDBARS | <span className="viewover" style={{fontSize:"14px"}}>VIEW ALL</span></Text>
         </Box>
         <HStack height="100%" width="100%" paddingLeft="30px" >
         <HStack 
              boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;"
-             h="100%" width="70%" display="flex" justifyContent="space-around" gap="30px" padding="20px" >
+             h="100%" display="grid"  gridTemplateColumns={{
+                base: "repeat(1,1fr)",
+                md: "repeat(2,1fr)",
+                lg: "repeat(5,1fr)",
+              }} gap="30px" padding="20px" w={"100%"} m="auto" >
             {
                 soundbar.map((items)=>(
-                    <div style={{width:"30%",boxSizing:"border-box"}} key={items._id}>
+                    <div key={items._id}>
                          <Link to={`product/${items._id}`} >
-                    <img style={{height:"200px"}} width="200px"  src={items.images[0]} alt={items.id} />
+                    <img  src={items.images[0]} alt={items.id} />
                     <div  className="title_lapi">
                     <h3  > {items.title.slice(0,50)}....</h3>
                     </div>
@@ -52,7 +56,7 @@ function BottomPart_1(){
 
         <Box padding="20px">
             <Image width="360px" src="https://www.reliancedigital.in/medias/Best-Selling-Soundbars-Products-Carousel-Banner-30-06-2022.jpg?context=bWFzdGVyfGltYWdlc3w1MDA1OHxpbWFnZS9qcGVnfGltYWdlcy9oZmYvaDBkLzk4NTc5NzI4OTU3NzQuanBnfGZmYTM1ZDMzNGU5YTY3NzA1NWJiNWE1OTA4MTU5MjIyMTRjNWY1MTA4ZmQxNGM5NGNhMzU2YjUyMzE4Y2QzNWI" />
-        </Box>
+        </Box> 
 
 
         </HStack>

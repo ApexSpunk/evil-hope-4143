@@ -1,11 +1,15 @@
-import { Heading } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 
 function SmallComp(){
     return (
         <div>
             <Heading fontWeight="650" marginTop="20px" marginBottom="20px" fontSize="22px" color="#003380" textAlign="center">THE RELIANCE DIGITAL BRAND PROMISE</Heading>
         
-        <div className="contain">
+        <Box display="grid"  gridTemplateColumns={{
+            base: "repeat(1,1fr)",
+            md: "repeat(2,1fr)",
+            lg: "repeat(4,1fr)",
+          }} className="contain">
             <div>
                 <img src="https://www.reliancedigital.in/medias/Insta-Delivery-Brand-Promise-Icon.png?context=bWFzdGVyfGltYWdlc3wxNTM3fGltYWdlL3BuZ3xpbWFnZXMvaGI2L2gwNS85NDQ3MTcwMzQyOTQyLnBuZ3w2Yzc1ZmY1ZjYwOWIyNWU0ZTgwMjFlYmRkMTU5ZTgzMGI4ZDNmZTE2NjVjYmRlMmUwMmRiODI2OTExNWM5ZTdk" alt="" />
                 <h5 className="subhead">INSTA DELIVERY</h5>
@@ -26,7 +30,7 @@ function SmallComp(){
             <h5 className="subhead">UNMATCHED NETWORK</h5>
                 <p>700 CITIES,2000 STORIES</p>
             </div>
-        </div>
+        </Box>
        
         </div>
     )

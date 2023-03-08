@@ -24,10 +24,10 @@ app.post('/signup', async (req, res) => {
         const { email } = req.body;
         const findUser = await userModel.findOne({ email: email })
         if (findUser) {
-            return res.send({ message: "user already exists" })
+            return res.status(200).send({ message: "user already exists" })
         }
         const user = await userModel.create(req.body);
-        return res.status(201).send(user);
+        return res.status(201).send({message: "user created successfully",user});
     } catch (e) {
         return res.status(500).send(e.message);
     }
@@ -46,28 +46,31 @@ app.post('/login', async (req, res) => {
 
             }
             const otp = Math.floor(100000 + Math.random() * 900000);
-            const saveOtp = await OtpModel.create({ otp, email })
+            const saveOtp = await OtpModel.create({ otp, email })    
 
-
-            let transporter = nodemailer.createTransport({
-                host: "smtp.ethereal.email",
-                port: 587,
-
+            const transporter = nodemailer.createTransport({
+                service: "gmail",
                 auth: {
-                    user: emailuser,
-                    pass: emailpassword,
-
+                  user: emailuser,
+                  pass: emailpassword,
                 },
-            })
+              });
 
-            transporter.sendMail({
-                from: 'masaidigital@gmail.com',
+            const mailOptions = {
+                from: 'pharmeasy@gmail.com',
                 to: email,
                 subject: `OTP generated successfully`,
                 text: `Dear ${user.firstName} the otp to login to your account id ${otp}`,
-            });
-
-
+              };
+          
+              transporter.sendMail(mailOptions, (err, info) => {
+                if (err) {
+                 return console.log("ERROR", err);
+                } else {
+                   console.log("EMAIL SEND" + info.response);
+                   res.send(`OTP SENDED SUCCESSFULLY`);
+                }
+              });
 
             return res.status(200).send({ message: "OTP has been sent to your email" });
         } else {
