@@ -15,6 +15,6 @@ Reliance Digital is an Indian consumer electronics retailer. It is a subsidiary 
 - Profile section & dashboard
 - Admin can create writers
 
-
+Netlify - https://masai-digital.netlify.app/
 
 
